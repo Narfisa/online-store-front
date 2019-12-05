@@ -30,4 +30,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 
-### Follow my node js repository to see back for this project
+### Follow my online store back to see backend for this project
