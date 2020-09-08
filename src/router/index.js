@@ -1,39 +1,38 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import VueRouter from 'vue-router'
-import Home from '../components/Home.vue'
-import Registration from '../components/Registration.vue'
+import Vue from 'vue';
+import Vuex from 'vuex';
+import VueRouter from 'vue-router';
+import Home from '../components/Home.vue';
+import Registration from '../components/Registration.vue';
 
-Vue.use(VueRouter)
-Vue.use(Vuex)
+Vue.use(VueRouter);
+Vue.use(Vuex);
 
 const router = new VueRouter({
   routes: [
     {
       path: '/home',
       name: 'home',
-      component: Home
+      component: Home,
     },
     {
       path: '/auth',
       name: 'auth',
-      component: Registration
-    }
-  ]
-})
+      component: Registration,
+    },
+  ],
+});
 
 router.beforeEach((to, from, next) => {
   if (to.fullPath !== '/auth') {
-    let key = window.$cookies.get('isAuth')
-    console.log(key)
+    const key = window.$cookies.get('isAuth');
     if (key) {
-      next()
+      next();
     } else {
-      next('/auth')
+      next('/auth');
     }
   } else {
-    next()
+    next();
   }
-})
+});
 
-export default router
+export default router;
